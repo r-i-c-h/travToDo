@@ -26,13 +26,5 @@ router
       .catch(err => res.status(404).json({success: false}));
   });
 
-  // Item.findById(req.params.id)
-  //     .then( item => item.remove() )
-  //     .then( () => res.json({success: true}) )
-  //     .catch(err => { 
-  //         console.error(`Problem DELETING ${req.params.id}: ${err} `);
-  //         res.status(404).json({success: false});
-  //     });
-
 // export default router;
 module.exports = router;

@@ -4,7 +4,10 @@
   "description": "alpha mern shop mod",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon --inspect server.js"
+    "client-install": "npm install --prefix client",
+    "server": "nodemon server.js",
+    "client": "cd client && npm start",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "@r-i-c-h",
   "license": "MIT",
