@@ -1,7 +1,6 @@
 // CHECK ACTIONS
 // Actions dispatch to the Reducer to actually f with the state
 import uuid from 'uuid';
-import { GET_ITEMS, ADD_ITEM, REMOVE_ITEM } from '../actions/types';
 
 const initialState = {
   items: [
@@ -14,8 +13,13 @@ const initialState = {
 
 export default function( state=initialState, action ) {
   switch (action.type) {
-    case GET_ITEMS:
+    case 'GET_ITEMS':
       return {...state}
+    case 'DELETE_ITEM':
+      return {
+        ...state,
+        items: state.items.filter( x => x.id !== action.id)
+      }
     default:
       return state
   }
