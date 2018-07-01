@@ -1,0 +1,20 @@
+{
+  "name": "shopmern",
+  "version": "0.0.1",
+  "description": "alpha mern shop mod",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon --inspect server.js"
+  },
+  "author": "@r-i-c-h",
+  "license": "MIT",
+  "dependencies": {
+    "concurrently": "^3.6.0",
+    "express": "^4.16.3",
+    "mongoose": "^5.1.7",
+    "morgan": "^1.9.0",
+    "nodemon": "^1.17.5",
+    "winston": "^3.0.0"
+  },
+  "devDependencies": {}
+}
