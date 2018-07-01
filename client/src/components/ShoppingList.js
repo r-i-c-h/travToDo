@@ -1,22 +1,25 @@
 import React , {Component} from 'react';
 import { Container, ListGroup, ListGroupItem, Button } from 'reactstrap';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { connect } from 'react-redux';
+import { getItems } from '../actions/itemActions';
 import uuid from 'uuid';
-
+import PropTypes from 'prop-types';
 
 class ShoppingList extends Component {
-  state = {
-    items: [
-      {id: uuid(), name: "Uno"},
-      {id: uuid(), name: "Dos"},
-      {id: uuid(), name: "Trays"},
-      {id: uuid(), name: "Comqwattro"}
-    ]
+  
+  componentDidMount(){
+    this.props.getItems();
   }
 
+  
   render() {
-    const { items } = this.state;
-    return(
+    const { items } = this.props.item;
+    // destructured from this.props.item.items
+    // where item is the entire state{}
+    // item.items is the arr[] inside of the state{}
+    
+    return (
       <div>
         <Container>
           <Button
@@ -54,5 +57,15 @@ class ShoppingList extends Component {
   }
 }
 
+ShoppingList.propTypes = {
+  getItems: PropTypes.func.isRequired,
+  item: PropTypes.object.isRequired
+}
 
-export default ShoppingList;
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+// take items state and map to props | Turn a state element into a Prop element
+// call it item because that is the name of the root reducer
+// See reducers/index.js
+const mapStateToProps = (state) => ({ item: state.item })
+
+export default connect( mapStateToProps, { getItems } )(ShoppingList);
