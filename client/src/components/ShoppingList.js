@@ -25,11 +25,6 @@ class ShoppingList extends Component {
     return (
       <div>
         <Container>
-          <Button
-            color="dark"
-            style={{marginBottom: '2rem'}}
-            onClick={()=> { } }
-          >Add Item</Button>
           <ListGroup>
             <TransitionGroup className="shopping-list">
               { items.map(({id,name}) => (

@@ -20,6 +20,10 @@ export default function( state=initialState, action ) {
         ...state,
         items: state.items.filter( x => x.id !== action.id)
       }
+    case 'ADD_ITEM':
+      return { ...state, 
+        items: [ { name: action.name, id: uuid() }, ...state.items]
+      }
     default:
       return state
   }
